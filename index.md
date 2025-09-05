@@ -1,6 +1,6 @@
 ---
-layout: home
-title: Home
+layout: default
+title: Yulei Liu - DevSecOps Professional
 ---
 
 👋 Hello! I'm Yulei Liu, a seasoned **DevSecOps and Cloud Infrastructure Professional** based in Sydney, Australia.
