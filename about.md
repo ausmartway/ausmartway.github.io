@@ -1,20 +1,7 @@
 ---
-layout: about
-title: about
+layout: page
+title: About
 permalink: /about/
-subtitle: <strong>DevSecOps & Cloud Infrastructure Professional</strong>
-
-profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: false
-  more_info: >
-    <p>Sydney, NSW, Australia</p>
-    <p>Monitoring/DevSecOps/AI Practitioner</p>
-
-news: false
-selected_papers: false
-social: true
 ---
 
 ## Professional Background

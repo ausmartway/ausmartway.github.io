@@ -1,107 +1,61 @@
-# al-folio theme configuration
-remote_theme: alshedivat/al-folio
+# GitHub Pages compatible configuration
+theme: minima
 
-# Basic site settings
-title: Yulei Liu
-first_name: Yulei
-middle_name: 
-last_name: Liu
+# Site settings
+title: "Yulei Liu - DevSecOps Professional"
 email: yulei@ausmartway.com
 description: > # this means to ignore newlines until "baseurl:"
   DevSecOps and Cloud Infrastructure Professional. Monitoring/DevSecOps/AI practitioner 
   specializing in HashiCorp ecosystem, Infrastructure as Code, and cloud security.
+  Based in Sydney, Australia.
+
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://ausmartway.github.io" # the base hostname & protocol for your site
-root: "" # the root folder of your site
-lang: en
 
-# Theme settings
-navbar_fixed: true
-footer_fixed: true
+# Author info
+author:
+  name: Yulei Liu
+  email: yulei@ausmartway.com
 
 # Social networking links
 github_username: ausmartway
 linkedin_username: yulei-liu
-twitter_username: # your Twitter username
-rss: rss
 
-# Contact note (optional)
-contact_note: >
-  Feel free to reach out for collaboration on DevSecOps, cloud infrastructure, 
-  or HashiCorp ecosystem projects.
-
-# Pagination
-paginate: 4
-
-# Blog settings
-blog_name: Tech Insights
-blog_description: Thoughts on DevSecOps, cloud infrastructure, and automation
-
-# Collections
+# Collections for projects
 collections:
   projects:
     output: true
-    permalink: /projects/:path/
+    permalink: /projects/:name/
 
-# Plugin settings
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Plugins
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
-  - jekyll-include-cache
-  - jemoji
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
-# Theme settings
-theme_color: "#0000ff"
-primary_color: "#2196F3"
+# Header pages
+header_pages:
+  - about.md
+  - projects.md
 
-# Icons
-enable_darkmode: true
-enable_navbar_social: true
+# Minima theme settings
+minima:
+  skin: dark
+  social_links:
+    github: ausmartway
+    linkedin: yulei-liu
 
-# Jekyll scholar
-enable_project_categories: true
-enable_project_tags: true
-
-# Navigation
-navbar_text:
-  - title: about
-    url: /about/
-  - title: projects
-    url: /projects/
-  - title: cv
-    url: /cv/
-
-# Display settings
-enable_project_categories: true
-enable_project_tags: true
-enable_medium_zoom: true
-enable_progressbar: true
-
-# Blog settings (if you want to add a blog later)
-enable_blog_sidebar: true
-blog_nav_title: "Blog"
-
-# Footer
-enable_contact_social: true
-enable_tooltips: true
-enable_darkmode: true
-enable_navbar_social: true
-
-# Repository settings
-repo_name: ausmartway.github.io
-repo_url: https://github.com/ausmartway/ausmartway.github.io
-
-# Google Analytics
-google_analytics: # your Measurement ID
-
-# Excluded files
+# Exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
