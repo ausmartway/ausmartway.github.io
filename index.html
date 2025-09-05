@@ -123,32 +123,40 @@
                 With extensive experience at leading technology companies including <strong>IBM</strong>, <strong>AppDynamics</strong>, and <strong>HashiCorp</strong>, I specialize in building secure, scalable, and automated infrastructure solutions.
             </div>
 
-            <h2>🎯 Current Focus Areas</h2>
+            <h2>🎯 Specialized Expertise Areas</h2>
             <ul>
-                <li><strong>DevSecOps</strong>: Integrating security practices throughout the development lifecycle</li>
-                <li><strong>Infrastructure as Code</strong>: Terraform, HashiCorp ecosystem, and cloud automation</li>
-                <li><strong>Cloud Security</strong>: AWS, multi-cloud security governance and compliance</li>
-                <li><strong>Monitoring & Observability</strong>: Application performance monitoring and system reliability</li>
-                <li><strong>AI/ML Operations</strong>: Implementing AI practices in infrastructure and operations</li>
+                <li><strong>HashiCorp Ecosystem Mastery</strong>: Deep expertise in Terraform Cloud/Enterprise and Vault configuration management</li>
+                <li><strong>Security Automation</strong>: Building tools for secret detection, TPM-based authentication, and zero-trust architectures</li>
+                <li><strong>Infrastructure as Code</strong>: Advanced Terraform practices, configuration management, and policy enforcement</li>
+                <li><strong>Authentication Solutions</strong>: OIDC integration, JWT tokens, SPIFFE compliance, and machine identity</li>
+                <li><strong>DevSecOps Tooling</strong>: Go-based CLI tools, CI/CD security integration, and compliance automation</li>
             </ul>
 
-            <h2>🛠️ Core Technologies</h2>
+            <h2>🛠️ Core Technologies & Tools</h2>
             <div class="tech-list">
                 <div class="tech-item">
-                    <strong>HashiCorp Ecosystem</strong><br>
-                    Terraform, Vault, Consul, Nomad
+                    <strong>HashiCorp Suite</strong><br>
+                    Terraform Cloud/Enterprise, Vault, HCL, Sentinel Policies
                 </div>
                 <div class="tech-item">
-                    <strong>Cloud Platforms</strong><br>
-                    AWS, Azure, Google Cloud, Tencent Cloud
+                    <strong>Programming Languages</strong><br>
+                    Go, HCL, Python, Shell Scripting
                 </div>
                 <div class="tech-item">
-                    <strong>Languages</strong><br>
-                    Go, HCL, Python, Shell scripting
+                    <strong>Security Technologies</strong><br>
+                    TPM 2.0, OIDC, JWT, SPIFFE, OpenSSL, mTLS
                 </div>
                 <div class="tech-item">
-                    <strong>Security</strong><br>
-                    Sentinel policies, compliance automation, secrets management
+                    <strong>Platform Integration</strong><br>
+                    Bitbucket Pipelines, Kong Gateway, Ubuntu ARM64, Docker
+                </div>
+                <div class="tech-item">
+                    <strong>Cloud & DevOps</strong><br>
+                    CI/CD Security, Secret Management, Infrastructure Automation
+                </div>
+                <div class="tech-item">
+                    <strong>Authentication Systems</strong><br>
+                    Zero-Trust Architecture, Machine Identity, Certificate Management
                 </div>
             </div>
 
@@ -164,22 +172,52 @@
         <section id="projects" class="projects">
             <h2>🚀 Featured Projects</h2>
             
+            <h3 style="color: #3498db; border-bottom: 2px solid #e8f4fd; padding-bottom: 5px;">🛠️ Infrastructure Management</h3>
+            
             <div class="project">
-                <h3>Terraform Cloud Configuration as Code</h3>
-                <p>Automated configuration management for Terraform Cloud using Infrastructure as Code principles. Enables teams to manage workspaces, variable sets, and organizational settings through version-controlled configuration files.</p>
+                <h3>tfc-config-as-code <span style="color: #f39c12; font-size: 0.8em;">⭐ 11 stars · 7 forks</span></h3>
+                <p><strong>Language:</strong> HCL | <strong>Focus:</strong> Terraform Cloud Configuration Management</p>
+                <p>Comprehensive approach to managing Terraform Cloud configuration as code. Handles workspaces (VCS-connected, non-VCS), projects, teams, modules, and management settings. Demonstrates advanced IaC practices with modular design and version control integration.</p>
                 <a href="https://github.com/ausmartway/tfc-config-as-code" class="project-link">View on GitHub</a>
             </div>
 
             <div class="project">
-                <h3>HashiCorp Vault Configuration as Code</h3>
-                <p>Enterprise-grade secrets management configuration using Infrastructure as Code principles. Comprehensive solution for managing HashiCorp Vault configurations with consistent, auditable, and scalable practices.</p>
+                <h3>vault-config-as-code <span style="color: #f39c12; font-size: 0.8em;">⭐ 6 stars · 7 forks</span></h3>
+                <p><strong>Language:</strong> HCL · Python · Shell | <strong>Focus:</strong> HashiCorp Vault Configuration</p>
+                <p>Transforms Vault configuration into reproducible, trackable infrastructure code using Terraform. Covers KV, Transit, PKI, and Identity secrets engines. Enables machine/human identity services, AWS authentication roles, and namespace management.</p>
                 <a href="https://github.com/ausmartway/vault-config-as-code" class="project-link">View on GitHub</a>
             </div>
 
+            <h3 style="color: #e74c3c; border-bottom: 2px solid #fadbd8; padding-bottom: 5px; margin-top: 40px;">🔒 Security Tools</h3>
+
             <div class="project">
-                <h3>AWS S3 Security Best Practices with Sentinel</h3>
-                <p>Automated cloud security governance using HashiCorp Sentinel policies for AWS S3 configurations. Ensures S3 buckets are configured according to security best practices and compliance requirements.</p>
-                <a href="https://github.com/ausmartway/aws-s3-security-best-practice-sentinel" class="project-link">View on GitHub</a>
+                <h3>tfcvar-sec <span style="color: #f39c12; font-size: 0.8em;">⭐ 5 stars</span></h3>
+                <p><strong>Language:</strong> Go | <strong>Focus:</strong> Terraform Security Scanning</p>
+                <p>CLI security tool that scans Terraform Cloud/Enterprise variables to identify potentially exposed secrets. Detects variables that might contain credentials but aren't marked as sensitive. Available via Homebrew, curl script, or Docker container.</p>
+                <a href="https://github.com/ausmartway/tfcvar-sec" class="project-link">View on GitHub</a>
+            </div>
+
+            <div class="project">
+                <h3>vault-tpm-helper <span style="color: #f39c12; font-size: 0.8em;">⭐ 1 star</span></h3>
+                <p><strong>Language:</strong> Go | <strong>Focus:</strong> Hardware-Backed Authentication</p>
+                <p>Solves the "Secret Zero" problem using TPM 2.0 technology for machine authentication. Performs secure Vault certificate authentication with TPM-protected private keys that never leave the hardware. Supports both hardware and virtual TPM environments.</p>
+                <a href="https://github.com/ausmartway/vault-tpm-helper" class="project-link">View on GitHub</a>
+            </div>
+
+            <h3 style="color: #9b59b6; border-bottom: 2px solid #e8daef; padding-bottom: 5px; margin-top: 40px;">🔐 Authentication Solutions</h3>
+
+            <div class="project">
+                <h3>vault-identity-token-demo <span style="color: #f39c12; font-size: 0.8em;">⭐ 3 stars · 2 forks</span></h3>
+                <p><strong>Language:</strong> Shell | <strong>Focus:</strong> Zero-Trust Authentication Architecture</p>
+                <p>Demonstrates zero-trust authentication using HashiCorp Vault and Kong Gateway. Features centralized JWT token authentication, SPIFFE-compliant workload identity, and department/role-based access control. Eliminates distributed auth across microservices.</p>
+                <a href="https://github.com/ausmartway/vault-identity-token-demo" class="project-link">View on GitHub</a>
+            </div>
+
+            <div class="project">
+                <h3>bitbucket-pipeline-oidc-with-vault</h3>
+                <p><strong>Language:</strong> HCL | <strong>Focus:</strong> CI/CD Secrets Management</p>
+                <p>Reference implementation for secure CI/CD secrets management using native OIDC token authentication to HashiCorp Vault. Eliminates hardcoded secrets in Bitbucket repositories while centralizing secret management across multiple repos.</p>
+                <a href="https://github.com/ausmartway/bitbucket-pipeline-oidc-with-vault" class="project-link">View on GitHub</a>
             </div>
         </section>
 
