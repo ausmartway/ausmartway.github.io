@@ -1,239 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yulei Liu - DevSecOps Professional</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
-        }
-        .intro {
-            font-size: 1.1em;
-            margin: 20px 0;
-        }
-        .highlight {
-            background-color: #e8f4fd;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            margin: 20px 0;
-        }
-        .tech-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .tech-item {
-            background: #f1f2f6;
-            padding: 15px;
-            border-radius: 8px;
-        }
-        .nav {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .nav a {
-            display: inline-block;
-            margin: 0 15px;
-            padding: 10px 20px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .nav a:hover {
-            background: #2980b9;
-        }
-        .social-links {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .social-links a {
-            margin: 0 10px;
-            padding: 8px 16px;
-            background: #34495e;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .projects {
-            margin-top: 40px;
-        }
-        .project {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 8px;
-            background: #fafafa;
-        }
-        .project h3 {
-            margin-top: 0;
-            color: #2c3e50;
-        }
-        .project-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 10px;
-            background: #27ae60;
-            color: white;
-            text-decoration: none;
-            border-radius: 3px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yulei Liu — DevSecOps and Cloud Infrastructure Professional. HashiCorp, Terraform, Vault, Go. Based in Sydney, Australia.">
+  <title>Yulei Liu — DevSecOps Professional</title>
+
+  <!-- Google Fonts preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Custom Properties ── */
+    :root {
+      --bg:      #0d1117;
+      --surface: #161b22;
+      --border:  #30363d;
+      --text:    #e6edf3;
+      --muted:   #8b949e;
+      --blue:    #58a6ff;
+      --green:   #3fb950;
+      --orange:  #f78166;
+      --purple:  #d2a8ff;
+      --yellow:  #e3b341;
+    }
+
+    /* ── Base ── */
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── Shared: Section Labels and Titles ── */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Shared: Buttons ── */
+    .btn-primary {
+      background: #238636;
+      color: var(--text);
+      border: 1px solid #2ea043;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #2ea043; }
+
+    .btn-ghost {
+      background: var(--surface);
+      color: var(--blue);
+      border: 1px solid var(--border);
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--blue); }
+
+    /* ── Shared: Language Badge ── */
+    .lang-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--green);
+      background: rgba(63,185,80,0.1);
+      border: 1px solid rgba(63,185,80,0.3);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    /* ── Shared: Focus Tag ── */
+    .focus-tag {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── Shared: Section wrapper ── */
+    .section {
+      max-width: 860px;
+      margin: 0 auto 64px;
+      padding: 0 32px;
+    }
+
+    /* ── Cursor blink ── */
+    @keyframes blink { 50% { opacity: 0; } }
+    .cursor {
+      display: inline-block;
+      width: 9px;
+      height: 16px;
+      background: var(--blue);
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+
+    /* ── Mobile base ── */
+    @media (max-width: 600px) {
+      .section-title { font-size: 18px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>👋 Yulei Liu - DevSecOps Professional</h1>
-        
-        <div class="nav">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
 
-        <section id="about">
-            <div class="intro">
-                I'm a seasoned <strong>DevSecOps and Cloud Infrastructure Professional</strong> based in Sydney, Australia.
-            </div>
+  <!-- NAV: Task 2 -->
+  <!-- HERO: Task 3 -->
+  <!-- EXPERTISE: Task 5 -->
+  <!-- PROJECTS: Task 6 -->
+  <!-- CONTACT+FOOTER: Task 7 -->
 
-            <div class="highlight">
-                With extensive experience at leading technology companies including <strong>IBM</strong>, <strong>AppDynamics</strong>, and <strong>HashiCorp</strong>, I specialize in building secure, scalable, and automated infrastructure solutions.
-            </div>
-
-            <h2>🎯 Specialized Expertise Areas</h2>
-            <ul>
-                <li><strong>HashiCorp Ecosystem Mastery</strong>: Deep expertise in Terraform Cloud/Enterprise and Vault configuration management</li>
-                <li><strong>Security Automation</strong>: Building tools for secret detection, TPM-based authentication, and zero-trust architectures</li>
-                <li><strong>Infrastructure as Code</strong>: Advanced Terraform practices, configuration management, and policy enforcement</li>
-                <li><strong>Authentication Solutions</strong>: OIDC integration, JWT tokens, SPIFFE compliance, and machine identity</li>
-                <li><strong>DevSecOps Tooling</strong>: Go-based CLI tools, CI/CD security integration, and compliance automation</li>
-            </ul>
-
-            <h2>🛠️ Core Technologies & Tools</h2>
-            <div class="tech-list">
-                <div class="tech-item">
-                    <strong>HashiCorp Suite</strong><br>
-                    Terraform Cloud/Enterprise, Vault, HCL, Sentinel Policies
-                </div>
-                <div class="tech-item">
-                    <strong>Programming Languages</strong><br>
-                    Go, HCL, Python, Shell Scripting
-                </div>
-                <div class="tech-item">
-                    <strong>Security Technologies</strong><br>
-                    TPM 2.0, OIDC, JWT, SPIFFE, OpenSSL, mTLS
-                </div>
-                <div class="tech-item">
-                    <strong>Platform Integration</strong><br>
-                    Bitbucket Pipelines, Kong Gateway, Ubuntu ARM64, Docker
-                </div>
-                <div class="tech-item">
-                    <strong>Cloud & DevOps</strong><br>
-                    CI/CD Security, Secret Management, Infrastructure Automation
-                </div>
-                <div class="tech-item">
-                    <strong>Authentication Systems</strong><br>
-                    Zero-Trust Architecture, Machine Identity, Certificate Management
-                </div>
-            </div>
-
-            <h2>🏆 Notable Achievements</h2>
-            <ul>
-                <li><strong>Arctic Code Vault Contributor</strong>: Code preserved for future generations</li>
-                <li><strong>3x Pull Shark</strong>: Significant open-source contributions</li>
-                <li><strong>HashiCorp Expertise</strong>: Deep experience with infrastructure automation</li>
-                <li><strong>Enterprise Experience</strong>: Successfully led implementations at scale</li>
-            </ul>
-        </section>
-
-        <section id="projects" class="projects">
-            <h2>🚀 Featured Projects</h2>
-            
-            <h3 style="color: #3498db; border-bottom: 2px solid #e8f4fd; padding-bottom: 5px;">🛠️ Infrastructure Management</h3>
-            
-            <div class="project">
-                <h3>tfc-config-as-code</h3>
-                <p><strong>Language:</strong> HCL | <strong>Focus:</strong> Terraform Cloud Configuration Management</p>
-                <p>Comprehensive approach to managing Terraform Cloud configuration as code. Handles workspaces (VCS-connected, non-VCS), projects, teams, modules, and management settings. Demonstrates advanced IaC practices with modular design and version control integration.</p>
-                <a href="https://github.com/ausmartway/tfc-config-as-code" class="project-link">View on GitHub</a>
-            </div>
-
-            <div class="project">
-                <h3>vault-config-as-code</h3>
-                <p><strong>Language:</strong> HCL · Python · Shell | <strong>Focus:</strong> HashiCorp Vault Configuration</p>
-                <p>Transforms Vault configuration into reproducible, trackable infrastructure code using Terraform. Covers KV, Transit, PKI, and Identity secrets engines. Enables machine/human identity services, AWS authentication roles, and namespace management.</p>
-                <a href="https://github.com/ausmartway/vault-config-as-code" class="project-link">View on GitHub</a>
-            </div>
-
-            <h3 style="color: #e74c3c; border-bottom: 2px solid #fadbd8; padding-bottom: 5px; margin-top: 40px;">🔒 Security Tools</h3>
-
-            <div class="project">
-                <h3>tfcvar-sec</h3>
-                <p><strong>Language:</strong> Go | <strong>Focus:</strong> Terraform Security Scanning</p>
-                <p>CLI security tool that scans Terraform Cloud/Enterprise variables to identify potentially exposed secrets. Detects variables that might contain credentials but aren't marked as sensitive. Available via Homebrew, curl script, or Docker container.</p>
-                <a href="https://github.com/ausmartway/tfcvar-sec" class="project-link">View on GitHub</a>
-            </div>
-
-            <div class="project">
-                <h3>vault-tpm-helper</h3>
-                <p><strong>Language:</strong> Go | <strong>Focus:</strong> Hardware-Backed Authentication</p>
-                <p>Solves the "Secret Zero" problem using TPM 2.0 technology for machine authentication. Performs secure Vault certificate authentication with TPM-protected private keys that never leave the hardware. Supports both hardware and virtual TPM environments.</p>
-                <a href="https://github.com/ausmartway/vault-tpm-helper" class="project-link">View on GitHub</a>
-            </div>
-
-            <h3 style="color: #9b59b6; border-bottom: 2px solid #e8daef; padding-bottom: 5px; margin-top: 40px;">🔐 Authentication Solutions</h3>
-
-            <div class="project">
-                <h3>vault-identity-token-demo</h3>
-                <p><strong>Language:</strong> Shell | <strong>Focus:</strong> Zero-Trust Authentication Architecture</p>
-                <p>Demonstrates zero-trust authentication using HashiCorp Vault and Kong Gateway. Features centralized JWT token authentication, SPIFFE-compliant workload identity, and department/role-based access control. Eliminates distributed auth across microservices.</p>
-                <a href="https://github.com/ausmartway/vault-identity-token-demo" class="project-link">View on GitHub</a>
-            </div>
-
-            <div class="project">
-                <h3>bitbucket-pipeline-oidc-with-vault</h3>
-                <p><strong>Language:</strong> HCL | <strong>Focus:</strong> CI/CD Secrets Management</p>
-                <p>Reference implementation for secure CI/CD secrets management using native OIDC token authentication to HashiCorp Vault. Eliminates hardcoded secrets in Bitbucket repositories while centralizing secret management across multiple repos.</p>
-                <a href="https://github.com/ausmartway/bitbucket-pipeline-oidc-with-vault" class="project-link">View on GitHub</a>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>📬 Get In Touch</h2>
-            <p>Feel free to reach out for collaboration on DevSecOps, cloud infrastructure, or HashiCorp ecosystem projects.</p>
-            
-            <div class="social-links">
-                <a href="https://github.com/ausmartway">GitHub</a>
-                <a href="https://linkedin.com/in/yulei-liu">LinkedIn</a>
-            </div>
-        </section>
-
-        <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
-            <p><em>Monitoring/DevSecOps/AI Practitioner | Sydney, NSW, Australia</em></p>
-        </footer>
-    </div>
+  <script>
+    // JS added in Tasks 2 and 4
+  </script>
 </body>
 </html>
