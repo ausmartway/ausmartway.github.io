@@ -17,5 +17,7 @@ Plan file: docs/superpowers/plans/2026-03-22-website-modernization.md
 
 - [x] Task 8: full-page visual verification — desktop (1280px) and mobile (390px) screenshots via Playwright; all sections render correctly: sticky nav, typewriter animation completes, 4-column expertise grid, 2-column project grids, 1-column mobile projects, wrapping CTA buttons, footer; no regressions found
 
+- [x] Task 9: pushed 11 commits to origin/master; GitHub Pages rebuilt in ~38s; live site at ausmartway.github.io confirmed serving new dark-theme terminal portfolio (title "Yulei Liu — DevSecOps Professional", typewriter animation active, all sections present)
+
 ## Notes
 
