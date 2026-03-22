@@ -322,6 +322,100 @@
         if (!nav.contains(e.target)) nav.classList.remove('open');
       });
     }());
+
+    (function () {
+      var body = document.getElementById('terminal-body');
+      if (!body) return;
+
+      // Clear static content — will be rebuilt by animation
+      while (body.firstChild) body.removeChild(body.firstChild);
+
+      function delay(ms) {
+        return new Promise(function (resolve) { setTimeout(resolve, ms); });
+      }
+
+      function makeSpan(cls, text) {
+        var el = document.createElement('span');
+        el.className = cls;
+        if (text !== undefined) el.textContent = text;
+        return el;
+      }
+
+      function makeDiv(children, style) {
+        var el = document.createElement('div');
+        if (style) el.setAttribute('style', style);
+        children.forEach(function (c) { el.appendChild(c); });
+        return el;
+      }
+
+      function makeText(text) {
+        return document.createTextNode(text);
+      }
+
+      async function typeInto(el, text, msPerChar) {
+        for (var i = 0; i < text.length; i++) {
+          el.textContent += text[i];
+          await delay(msPerChar);
+        }
+      }
+
+      function appendWhoamiOutput() {
+        var block = document.createElement('div');
+        block.className = 't-block';
+
+        var rows = [
+          [makeSpan('t-key', 'name'),      makeText(': '), makeSpan('t-val', '"Yulei Liu"')],
+          [makeSpan('t-key', 'role'),      makeText(': '), makeSpan('t-val', '"DevSecOps & Cloud Infrastructure Professional"')],
+          [makeSpan('t-key', 'location'), makeText(': '), makeSpan('t-val', '"Sydney, NSW, Australia"')],
+          [makeSpan('t-key', 'employers'),makeText(': '), makeSpan('t-val', '["HashiCorp", "AppDynamics", "IBM"]')],
+        ];
+        rows.forEach(function (children) { block.appendChild(makeDiv(children)); });
+        body.appendChild(block);
+      }
+
+      function appendSkillsOutput() {
+        var block = document.createElement('div');
+        block.className = 't-block';
+
+        var rows = [
+          [makeSpan('t-key', 'iac'),       makeText(':      '), makeSpan('t-val', '["Terraform", "HCL", "Sentinel Policies"]')],
+          [makeSpan('t-key', 'security'),  makeText(': '),      makeSpan('t-val', '["Vault", "TPM 2.0", "OIDC", "JWT", "SPIFFE", "mTLS"]')],
+          [makeSpan('t-key', 'languages'), makeText(':'),       makeSpan('t-val', ' ["Go", "Python", "Shell"]')],
+          [makeSpan('t-key', 'platform'),  makeText(': '),      makeSpan('t-val', '["Docker", "Kong Gateway", "Bitbucket Pipelines"]')],
+        ];
+        rows.forEach(function (children) { block.appendChild(makeDiv(children)); });
+        body.appendChild(block);
+      }
+
+      async function run() {
+        // Step 1: prompt + type "whoami"
+        var cmd1 = makeSpan('t-cmd', '');
+        body.appendChild(makeDiv([makeSpan('t-prompt', '\u276f '), cmd1]));
+        await typeInto(cmd1, 'whoami', 40);
+
+        // Step 2: pause, show whoami output
+        await delay(200);
+        appendWhoamiOutput();
+
+        // Step 3: pause, prompt + type "skills --list"
+        await delay(400);
+        var cmd2 = makeSpan('t-cmd', '');
+        body.appendChild(makeDiv([makeSpan('t-prompt', '\u276f '), cmd2], 'margin-top:8px'));
+        await typeInto(cmd2, 'skills --list', 40);
+
+        // Step 4: pause, show skills output
+        await delay(200);
+        appendSkillsOutput();
+
+        // Step 5: pause, final prompt + blinking cursor
+        await delay(300);
+        var cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        body.appendChild(makeDiv([makeSpan('t-prompt', '\u276f '), cursor], 'margin-top:8px'));
+      }
+
+      run();
+    }());
   </script>
 </body>
 </html>
