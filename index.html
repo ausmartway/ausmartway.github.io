@@ -281,6 +281,66 @@
       gap: 12px;
       flex-wrap: wrap;
     }
+
+    /* ── Projects ── */
+    .project-category { margin-bottom: 36px; }
+
+    .cat-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .cat-infra    { color: #58a6ff; background: rgba(88,166,255,0.1);  border: 1px solid rgba(88,166,255,0.3);  }
+    .cat-security { color: #f78166; background: rgba(247,129,102,0.1); border: 1px solid rgba(247,129,102,0.3); }
+    .cat-auth     { color: #d2a8ff; background: rgba(210,168,255,0.1); border: 1px solid rgba(210,168,255,0.3); }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 14px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+    .project-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .project-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      .project-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -363,7 +423,78 @@
       </div>
     </div>
   </section>
-  <!-- PROJECTS: Task 6 -->
+  <section id="projects" class="section">
+    <div class="section-label">// projects</div>
+    <div class="section-title">Featured Projects</div>
+
+    <div class="project-category">
+      <span class="cat-badge cat-infra">Infrastructure Management</span>
+      <div class="project-grid">
+        <a class="project-card" href="https://github.com/ausmartway/tfc-config-as-code" target="_blank" rel="noopener">
+          <div class="project-name">tfc-config-as-code</div>
+          <div class="project-desc">Manages Terraform Cloud configuration as code &mdash; workspaces, projects, teams, modules, and settings with modular IaC design.</div>
+          <div class="project-meta">
+            <span class="lang-badge">HCL</span>
+            <span class="focus-tag">Terraform Cloud Config Management</span>
+          </div>
+        </a>
+        <a class="project-card" href="https://github.com/ausmartway/vault-config-as-code" target="_blank" rel="noopener">
+          <div class="project-name">vault-config-as-code</div>
+          <div class="project-desc">Transforms Vault configuration into reproducible infrastructure code. Covers KV, Transit, PKI, Identity engines, and namespace management.</div>
+          <div class="project-meta">
+            <span class="lang-badge">HCL</span>
+            <span class="lang-badge">Python</span>
+            <span class="lang-badge">Shell</span>
+            <span class="focus-tag">HashiCorp Vault Config</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-category">
+      <span class="cat-badge cat-security">Security Tools</span>
+      <div class="project-grid">
+        <a class="project-card" href="https://github.com/ausmartway/tfcvar-sec" target="_blank" rel="noopener">
+          <div class="project-name">tfcvar-sec</div>
+          <div class="project-desc">CLI tool that scans TFC/TFE variables to detect exposed secrets not marked as sensitive. Available via Homebrew, curl, or Docker.</div>
+          <div class="project-meta">
+            <span class="lang-badge">Go</span>
+            <span class="focus-tag">Terraform Security Scanning</span>
+          </div>
+        </a>
+        <a class="project-card" href="https://github.com/ausmartway/vault-tpm-helper" target="_blank" rel="noopener">
+          <div class="project-name">vault-tpm-helper</div>
+          <div class="project-desc">Solves "Secret Zero" using TPM 2.0 &mdash; authenticates to Vault with hardware-protected keys that never leave the chip. Supports vTPM too.</div>
+          <div class="project-meta">
+            <span class="lang-badge">Go</span>
+            <span class="focus-tag">Hardware-Backed Authentication</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-category">
+      <span class="cat-badge cat-auth">Authentication Solutions</span>
+      <div class="project-grid">
+        <a class="project-card" href="https://github.com/ausmartway/vault-identity-token-demo" target="_blank" rel="noopener">
+          <div class="project-name">vault-identity-token-demo</div>
+          <div class="project-desc">Zero-trust auth using Vault + Kong Gateway. Centralized JWT tokens, SPIFFE workload identity, department/role-based access control.</div>
+          <div class="project-meta">
+            <span class="lang-badge">Shell</span>
+            <span class="focus-tag">Zero-Trust Architecture</span>
+          </div>
+        </a>
+        <a class="project-card" href="https://github.com/ausmartway/bitbucket-pipeline-oidc-with-vault" target="_blank" rel="noopener">
+          <div class="project-name">bitbucket-pipeline-oidc-with-vault</div>
+          <div class="project-desc">Reference impl for secretless CI/CD using native OIDC token auth to Vault. Eliminates hardcoded secrets across Bitbucket repos.</div>
+          <div class="project-meta">
+            <span class="lang-badge">HCL</span>
+            <span class="focus-tag">CI/CD Secrets Management</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
   <!-- CONTACT+FOOTER: Task 7 -->
 
   <script>
