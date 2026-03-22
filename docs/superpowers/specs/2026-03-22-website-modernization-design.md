@@ -64,7 +64,7 @@ Green pill: background `rgba(63,185,80,0.1)`, border `1px solid rgba(63,185,80,0
 ## Sections
 
 ### 1. Sticky Navigation
-- Brand (left): `~/ausmartway` in `var(--green)` JetBrains Mono — this is the nav brand string
+- Brand (left): `~/yuleiliu` in `var(--green)` JetBrains Mono — this is the nav brand string
 - Links (right): anchor links to in-page sections — `#expertise`, `#projects`, `#contact`. **Not** links to Jekyll pages (`about.md`, `projects.md`).
 - Style: `position: sticky; top: 0; z-index: 100`, background `rgba(13,17,23,0.85)`, `-webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px)` (both prefixes for Safari compatibility), `border-bottom: 1px solid var(--border)`, height `56px`
 - **Mobile (≤600px):**
@@ -156,7 +156,7 @@ Badge style: JetBrains Mono 12px, font-weight 600, letter-spacing 0.1em, upperca
 - Three ghost buttons in a flex row (wrap on mobile to column):
   - `GitHub →` → `https://github.com/ausmartway`
   - `LinkedIn →` → `https://linkedin.com/in/yulei-liu`
-  - `Email →` → `mailto:yulei@ausmartway.com`
+  - `Email →` → `mailto:yulei.liu@gmail.com`
 
 ### 6. Footer
 - `border-top: 1px solid var(--border)`, padding `28px 32px`, text-align center

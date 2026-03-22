@@ -4,7 +4,14 @@
       "WebFetch(domain:github.com)",
       "Bash(gh api:*)",
       "WebFetch(domain:ausmartway.github.io)",
-      "Bash(bundle install:*)"
+      "Bash(bundle install:*)",
+      "mcp__chrome-devtools__list_pages",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(bash scripts/start-server.sh --project-dir /Users/yuleiliu/repos/ausmartway_githubpages.github.io)",
+      "mcp__playwright__browser_resize"
     ],
     "deny": [],
     "ask": []
