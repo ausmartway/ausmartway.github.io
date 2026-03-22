@@ -125,18 +125,116 @@
     @media (max-width: 600px) {
       .section-title { font-size: 18px; }
     }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.85);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      z-index: 101;
+    }
+    .nav-dropdown a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 15px;
+      padding: 12px 24px;
+      transition: color 0.2s;
+    }
+    .nav-dropdown a:hover { color: var(--text); }
+    nav.open .nav-dropdown { display: block; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAV: Task 2 -->
+<nav id="main-nav">
+  <a href="#" class="nav-brand">~/yuleiliu</a>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+  <div class="nav-dropdown" id="nav-dropdown">
+    <a href="#expertise" class="dropdown-link">Expertise</a>
+    <a href="#projects" class="dropdown-link">Projects</a>
+    <a href="#contact" class="dropdown-link">Contact</a>
+  </div>
+</nav>
   <!-- HERO: Task 3 -->
   <!-- EXPERTISE: Task 5 -->
   <!-- PROJECTS: Task 6 -->
   <!-- CONTACT+FOOTER: Task 7 -->
 
   <script>
-    // JS added in Tasks 2 and 4
+    (function () {
+      var nav = document.getElementById('main-nav');
+      var hamburger = document.getElementById('hamburger');
+
+      hamburger.addEventListener('click', function () {
+        nav.classList.toggle('open');
+      });
+
+      document.querySelectorAll('.dropdown-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('open');
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!nav.contains(e.target)) nav.classList.remove('open');
+      });
+    }());
   </script>
 </body>
 </html>
