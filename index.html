@@ -194,6 +194,44 @@
       .nav-hamburger { display: block; }
     }
 
+    /* ── Expertise Grid ── */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .tech-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      transition: border-color 0.2s;
+    }
+    .tech-card:hover { border-color: var(--blue); }
+    .tech-card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .tech-card-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .tech-card-items {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .tech-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* ── Hero ── */
     .hero {
       max-width: 860px;
@@ -299,7 +337,32 @@
       <a href="https://linkedin.com/in/yulei-liu" class="btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
-  <!-- EXPERTISE: Task 5 -->
+  <section id="expertise" class="section">
+    <div class="section-label">// expertise</div>
+    <div class="section-title">Core Technologies &amp; Tools</div>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-card-label">HashiCorp Suite</div>
+        <div class="tech-card-name">Infrastructure &amp; Secrets</div>
+        <div class="tech-card-items">Terraform Cloud/Enterprise &middot; Vault &middot; HCL &middot; Sentinel</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Security</div>
+        <div class="tech-card-name">Zero-Trust &amp; AuthN</div>
+        <div class="tech-card-items">TPM 2.0 &middot; OIDC &middot; JWT &middot; SPIFFE &middot; OpenSSL &middot; mTLS</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Languages</div>
+        <div class="tech-card-name">Programming</div>
+        <div class="tech-card-items">Go &middot; Python &middot; HCL &middot; Shell Scripting</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Platform</div>
+        <div class="tech-card-name">CI/CD &amp; DevOps</div>
+        <div class="tech-card-items">Bitbucket Pipelines &middot; Docker &middot; Kong Gateway</div>
+      </div>
+    </div>
+  </section>
   <!-- PROJECTS: Task 6 -->
   <!-- CONTACT+FOOTER: Task 7 -->
 
