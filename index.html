@@ -193,6 +193,56 @@
       .nav-links { display: none; }
       .nav-hamburger { display: block; }
     }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 860px;
+      margin: 72px auto 56px;
+      padding: 0 32px;
+    }
+    .terminal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .terminal-bar {
+      background: #21262d;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .dot-red    { background: #ff5f57; }
+    .dot-yellow { background: #febc2e; }
+    .dot-green-dot  { background: #28c840; }
+    .terminal-title {
+      margin: 0 auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .terminal-body {
+      padding: 24px 28px 28px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      line-height: 1.9;
+      overflow-x: auto;
+    }
+    .t-prompt { color: var(--green); }
+    .t-cmd    { color: var(--blue); }
+    .t-key    { color: var(--purple); }
+    .t-val    { color: var(--orange); }
+    .t-block  { margin-left: 16px; }
+    .hero-cta {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
   </style>
 </head>
 <body>
@@ -211,7 +261,44 @@
     <a href="#contact" class="dropdown-link">Contact</a>
   </div>
 </nav>
-  <!-- HERO: Task 3 -->
+  <div class="hero">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green-dot"></span>
+        <span class="terminal-title">bash &#8212; ~/portfolio</span>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <div>
+          <span class="t-prompt">&#10095; </span><span class="t-cmd">whoami</span>
+        </div>
+        <div class="t-block">
+          <div><span class="t-key">name</span>: <span class="t-val">"Yulei Liu"</span></div>
+          <div><span class="t-key">role</span>: <span class="t-val">"DevSecOps &amp; Cloud Infrastructure Professional"</span></div>
+          <div><span class="t-key">location</span>: <span class="t-val">"Sydney, NSW, Australia"</span></div>
+          <div><span class="t-key">employers</span>: <span class="t-val">["HashiCorp", "AppDynamics", "IBM"]</span></div>
+        </div>
+        <div style="margin-top:8px;">
+          <span class="t-prompt">&#10095; </span><span class="t-cmd">skills --list</span>
+        </div>
+        <div class="t-block">
+          <div><span class="t-key">iac</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="t-val">["Terraform", "HCL", "Sentinel Policies"]</span></div>
+          <div><span class="t-key">security</span>: <span class="t-val">["Vault", "TPM 2.0", "OIDC", "JWT", "SPIFFE", "mTLS"]</span></div>
+          <div><span class="t-key">languages</span>:<span class="t-val"> ["Go", "Python", "Shell"]</span></div>
+          <div><span class="t-key">platform</span>: <span class="t-val">["Docker", "Kong Gateway", "Bitbucket Pipelines"]</span></div>
+        </div>
+        <div style="margin-top:8px;">
+          <span class="t-prompt">&#10095; </span><span class="cursor"></span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="https://github.com/ausmartway" class="btn-ghost" target="_blank" rel="noopener">GitHub Profile</a>
+      <a href="https://linkedin.com/in/yulei-liu" class="btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
   <!-- EXPERTISE: Task 5 -->
   <!-- PROJECTS: Task 6 -->
   <!-- CONTACT+FOOTER: Task 7 -->
