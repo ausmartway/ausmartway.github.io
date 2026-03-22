@@ -4,60 +4,51 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a GitHub Pages repository using Jekyll with the Cayman theme. It's a personal website hosted at `ausmartway.github.io`.
-
-## Architecture
-
-- **Static Site Generator**: Jekyll (configured via `_config.yml`)
-- **Theme**: jekyll-theme-cayman
-- **Hosting**: GitHub Pages
-- **Content**: Simple HTML pages in the root directory
-
-## Key Files
-
-- `index.html`: Main landing page content
-- `_config.yml`: Jekyll configuration and theme settings
+Personal GitHub Pages site for Yulei Liu (`ausmartway.github.io`) — a DevSecOps/Cloud Infrastructure portfolio. Uses Jekyll with the **minima** theme (dark skin).
 
 ## Development Commands
 
-Since this is a Jekyll site using the al-folio theme, use these commands for local development:
-
 ```bash
-# Install Jekyll and dependencies
+# Install dependencies
 bundle install
 
-# Serve the site locally (with live reload)
+# Serve locally with live reload
 bundle exec jekyll serve --livereload
 
-# Build the site
+# Build only
 bundle exec jekyll build
 
 # Clean build artifacts
 bundle exec jekyll clean
 ```
 
-## Theme Structure
+The site also works without Jekyll for the main page — `index.html` is a standalone HTML file and can be opened directly in a browser or served with:
 
-This site uses the **al-folio** theme, a modern Jekyll theme for portfolios:
+```bash
+python3 -m http.server 8080
+```
 
-- **Homepage**: `index.html` - Professional introduction and overview
-- **Projects**: `_projects/` - Individual project showcase pages
-- **Pages**: `_pages/` - Static pages (about, projects listing, CV)
-- **Assets**: `assets/` - Images, CSS, and other static files
-- **Configuration**: `_config.yml` - Site settings and theme configuration
+## Architecture
 
-## Content Management
+### Two-tier content model
 
-### Adding New Projects
-1. Create a new markdown file in `_projects/`
-2. Use the front matter template from existing projects
-3. Include categories and importance ratings for proper sorting
+This repo has a deliberate split:
 
-### Updating Professional Information
-- Main details: Update `_config.yml`
-- Homepage content: Edit `index.html`
-- Detailed background: Edit `_pages/about.md`
+1. **`index.html`** — Standalone HTML (bypasses Jekyll entirely). Self-contained with inline `<style>` and `<script>`. Jekyll does not process it. This is the main landing page and the primary file for design work.
 
-## Deployment
+2. **Jekyll pages** (`about.md`, `projects.md`, `_pages/cv.md`, `_pages/aws-s3-security.md`) — Processed by Jekyll using the minima theme layout. These are separate from `index.html` and use Liquid templating.
 
-The site automatically deploys to GitHub Pages when changes are pushed to the master branch. The al-folio theme is configured as a remote theme for GitHub Pages compatibility.
+3. **`_projects/` collection** — Individual project markdown files (currently `tfc-config-as-code.md`, `vault-config-as-code.md`). Referenced by `projects.md` via Liquid `site.projects` iteration.
+
+### Key constraint
+
+`index.html` and the Jekyll pages are **independent systems** — changes to nav or styling in `index.html` do not affect the Jekyll pages and vice versa.
+
+### Configuration
+
+- `_config.yml` — Jekyll config, theme (`minima`), social links, plugins (`jekyll-feed`, `jekyll-sitemap`, `jekyll-seo-tag`), and the `projects` collection definition
+- Theme skin: `minima.skin: dark`
+
+### Design specs and plans
+
+Implementation specs and plans live in `docs/superpowers/specs/` and `docs/superpowers/plans/`. The `.superpowers/` directory (brainstorm session files) is gitignored.
